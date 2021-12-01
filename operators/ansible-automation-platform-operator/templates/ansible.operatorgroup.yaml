@@ -1,0 +1,7 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: {{ .Values.ansible.config.operatorGroupName }}
+spec:
+  targetNamespaces:
+  - {{ .Values.ansible.config.namespace}}

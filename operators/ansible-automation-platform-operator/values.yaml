@@ -1,0 +1,5 @@
+ansible:
+  config:
+    operatorGroupName: ansible-automation-platform
+    namespace: ansible-automation-platform
+    channel: early-access
