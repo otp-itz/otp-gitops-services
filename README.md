@@ -1,12 +1,13 @@
-# Catalog of Operators and Instances Catalog for MCM AIOps Asset
+# Catalog of Operators and Instances Catalog for One Touch Provisioning asset
 
-This git repository serves as a catalog/library of Operators and Instances of the custom resource(s) provided by the Operators for the [MCM AIOps Asset](https://github.com/apac-mcm-aiops-asset/mcm-aiops-gitops).  The Operator and Instance YAMLs are package as a Helm Chart and can be referenced by ArgoCD Applications.
+This git repository serves as a catalog/library of Operators and Instances of the custom resource(s) provided by the Operators for the [One Touch Provisioning](https://github.com/one-touch-provisioning/otp-gitops) asset.  The Operator and Instance YAMLs are package as a Helm Chart and can be referenced by ArgoCD Applications.
 
-The Charts are hosted in the [Cloud Native Toolkit Helm Repository](https://github.com/cloud-native-toolkit/toolkit-charts) and [MCM-AIOPS-Asset Helm Repository](https://github.com/apac-mcm-aiops-asset/mcm-aiops-asset-charts)
+The Charts are hosted in the [Cloud Native Toolkit Helm Repository](https://github.com/cloud-native-toolkit/toolkit-charts).
 
 ## Instances
 
 ### Instana
+
 The prerequisites to install the Instana agent are:  
     
 1. Store your Instana Agent Key in a secret in the `instana-agent` namespace. The secret key field should contain `key` and the value contains your Instana Agent Key. Modify the `instana-agent.agent.keysSecret` value in the `instances\instana-agent\values.yaml` file to match the secret you deployed. 
