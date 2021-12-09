@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - crb.yaml
   - automationcontroller.yaml
+  - consolelink.yaml
