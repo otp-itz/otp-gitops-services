@@ -23,5 +23,5 @@ spec:
           value: open-cluster-management
         - name: CONSOLE_LINK_TEXT
           value: Red Hat Advanced Cluster Management
-      restartPolicy: Never
+      restartPolicy: OnFailure
   backoffLimit: 2

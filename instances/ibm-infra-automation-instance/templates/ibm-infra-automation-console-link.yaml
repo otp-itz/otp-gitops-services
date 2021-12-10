@@ -23,5 +23,5 @@ spec:
           value: ibm-common-services
         - name: CONSOLE_LINK_TEXT
           value: IBM Infrastructure Automation
-      restartPolicy: Never
+      restartPolicy: OnFailure
   backoffLimit: 2

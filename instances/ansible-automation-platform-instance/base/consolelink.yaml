@@ -22,6 +22,6 @@ spec:
         - name: ROUTE_NAMESPACE
           value: ansible-automation-platform
         - name: CONSOLE_LINK_TEXT
-          value: Ansible Tower
-      restartPolicy: Never
+          value: Ansible Automation Platform
+      restartPolicy: OnFailure
   backoffLimit: 2
