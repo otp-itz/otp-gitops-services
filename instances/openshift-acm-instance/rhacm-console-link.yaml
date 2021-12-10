@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       containers:
-      - name: argocd-console-link-postinstall
+      - name: rhacm-console-link-postinstall
         image: quay.io/congxdev/otp-console-link:4.8
         imagePullPolicy: Always
         env:
