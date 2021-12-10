@@ -23,5 +23,7 @@ spec:
           value: ansible-automation-platform
         - name: CONSOLE_LINK_TEXT
           value: Ansible Automation Platform
+        - name: APP_NAME
+          value: ansible-automation-platform
       restartPolicy: OnFailure
   backoffLimit: 2

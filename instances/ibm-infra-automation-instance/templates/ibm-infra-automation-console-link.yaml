@@ -23,5 +23,7 @@ spec:
           value: ibm-common-services
         - name: CONSOLE_LINK_TEXT
           value: IBM Infrastructure Automation
+        - name: APP_NAME
+          value: infra-auto
       restartPolicy: OnFailure
   backoffLimit: 2
