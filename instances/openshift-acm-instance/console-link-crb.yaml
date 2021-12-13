@@ -23,3 +23,11 @@ rules:
     - route.openshift.io
     resources:
     - routes
+  - verbs:
+    - get
+    - create
+    - patch
+    apiGroup:
+    - console.openshift.io
+    resources:
+    - consolelinks
