@@ -5,7 +5,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "202"
 spec:
-  availabilityConfig: Basic             # Available values are High or Basic
   enableDownSampling: true             # The default value is false. This is not recommended as querying long-time ranges without non-downsampled data is not efficient and useful.
   imagePullPolicy: Always
   imagePullSecret: multiclusterhub-operator-pull-secret    # The pull secret generated above
