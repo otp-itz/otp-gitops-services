@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: istio-system
 
 resources:
-  - istio-system-namespace.yaml
   - servicemesh-controlplane.yaml
