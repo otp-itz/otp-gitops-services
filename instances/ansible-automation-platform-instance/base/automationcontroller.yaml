@@ -5,7 +5,6 @@ metadata:
   namespace: ansible-automation-platform
   annotations:
     argocd.argoproj.io/sync-wave: "250"
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   create_preload_data: true
   route_tls_termination_mechanism: Edge
