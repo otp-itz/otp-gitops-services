@@ -33,17 +33,23 @@ spec:
 
                 until [ "$(oc get installplan -n sso -o jsonpath="{.items[?(@.spec.clusterServiceVersionNames[*] == \"$desiredcsv\")].metadata.name}")" != "" ]; do sleep 2; done
 
-                installplan=$(oc get installplan -n sso -o jsonpath="{.items[?(@.spec.clusterServiceVersionNames[*] == \"$desiredcsv\")].metadata.name}")
+                installplans=$(oc get installplan -n sso -o jsonpath="{.items[?(@.spec.clusterServiceVersionNames[*] == \"$desiredcsv\")].metadata.name}")
 
-                if [ "`oc get installplan $installplan -n sso -o jsonpath="{.spec.approved}"`" == "false" ]; then
+                ipAr=(${installplans})
 
-                  echo "Approving Subscription $subscription with install plan $installplan"
+                for installplan in ${installplans[@]}
+                do
+                  echo "installplan: ${installplan}"
+                  if [ "`oc get installplan $installplan -n sso -o jsonpath="{.spec.approved}"`" == "false" ]; then
 
-                  oc patch -n sso installplan $installplan --type=json -p='[{"op":"replace","path": "/spec/approved", "value": true}]'
+                    echo "Approving Subscription $subscription with install plan $installplan"
 
-                else
-                  echo "Install Plan '$installplan' already approved"
-                fi
+                    oc patch -n sso installplan $installplan --type=json -p='[{"op":"replace","path": "/spec/approved", "value": true}]'
+
+                  else
+                    echo "Install Plan '$installplan' already approved"
+                  fi
+                done
               done
 
               if [ "$GENERATE_OPENID_CERT" == true ] ; then
