@@ -35,8 +35,6 @@ spec:
 
                 installplans=$(oc get installplan -n sso -o jsonpath="{.items[?(@.spec.clusterServiceVersionNames[*] == \"$desiredcsv\")].metadata.name}")
 
-                ipAr=(${installplans})
-
                 for installplan in ${installplans[@]}
                 do
                   echo "installplan: ${installplan}"
