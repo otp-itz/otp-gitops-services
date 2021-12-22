@@ -7,7 +7,7 @@ bases:
 patches:
 -  target:
      kind: AutomationController
-     name: tower
+     name: controller
    patch: |-
     - op: add
       path: /spec/postgres_storage_class
