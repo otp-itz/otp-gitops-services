@@ -20,3 +20,5 @@ kind: ConfigMap
 metadata:
   name: argocd-configs
   namespace: sso-integration
+  annotations:
+    argocd.argoproj.io/hook: Skip
