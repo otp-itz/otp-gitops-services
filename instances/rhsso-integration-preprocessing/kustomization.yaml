@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
   - rbac.yaml
-  - argocd-configs.yaml
   - keycloak-pre-processing-job.yaml
