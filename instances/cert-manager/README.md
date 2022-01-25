@@ -5,12 +5,18 @@ The certificate pattern developed is multi-tiered with the hub cluster acting as
 
 ![cert-chain](cert-chain.png "Certificate Chain Pattern in use")
 
-## How It Works
+# Caveats/Gotchas
+- Certificates have a 90 day exirary by deafult, this can be changed.
+- They are self signed, so will still give browser errors if used for external facing interfaces like routes
+- They are stored as secrets within the clusters and nodes, so not entirely secret, however they are contained to specific namespaces.
+
+# How It Works
 Taking the vault deployment as an example the following steps and samples are required to setup a trust-chain, this all automated using the pattern described below.
 
 The first 3 steps all take place on the Hub Cluster.
 
 1. Cert-Manager installed and setup as Self-Signing CA (already part of the pattern)
+(Performed once Per Hub Cluster)
 ```
 ---
 apiVersion: cert-manager.io/v1
@@ -44,6 +50,7 @@ spec:
 ```
 
 2. Each application deployed via RHACM on the Hub requests a certificate that also is also a CA, which will become an intermediate CA, certificates are requested and issued for that application's namespace.
+(Performed once Per Application to be deployed)
 
 ```
 ---
@@ -64,6 +71,7 @@ spec:
 
 3. Using Hive SelectorSyncSet, distribute the secret to child clusters using the clusterDeploymentSelector to determine which clusters, refer to the [Hive documentation] for more info.
 The SelectorSyncSet below, will Sync a secret, in this case our certificates, with a secret in the child cluster called rootca in the namespace vault.
+(Performed once Per Application to be deployed on hub cluster)
 
 ```
 apiVersion: hive.openshift.io/v1
@@ -88,6 +96,9 @@ spec:
 The following steps take place on the child cluster(s) (again automated through the pattern)
 
 4. Create an certificate Issuer in the application namespace using the intermediate CA that was Synced buy the SelectorSyncSet in step 3.
+(Performed once Per Application to be deployed on each child cluster)
+
+
 ```
 ---
 # Create an Issuer that uses the above generated CA certificate to issue certs
@@ -102,6 +113,7 @@ spec:
 ```
 
 5. Request a certificate from the new namespace issuer for the given application, the certificate will be stored in the secret you specifiy, in this example 'vault-tls'
+(Performed as needed per application per child cluster)
 
 ```
 apiVersion: cert-manager.io/v1
