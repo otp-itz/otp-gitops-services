@@ -7,4 +7,5 @@ metadata:
 spec:
   nodeSelector:
     node-role.kubernetes.io/infra: ""
-  availabilityConfig: Basic
+  enableClusterBackup: false
+  enableClusterProxyAddon: false
