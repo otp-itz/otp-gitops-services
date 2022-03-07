@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: {{ .Values.rhacm.config.operatorGroupName }} # $RHACM_OPERATOR_GROUP_NAME
+  namespace: {{ .Values.rhacm.config.namespace}} 
+spec:
+  targetNamespaces:
+  - {{ .Values.rhacm.config.namespace}} # $RHACM_NAMESPACE
