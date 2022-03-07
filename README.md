@@ -6,6 +6,8 @@ The Charts are hosted in the [Cloud Native Toolkit Helm Repository](https://gith
 
 ## Instances
 
+Instances are deployed with mostly default options selected. You will need to modify these to suit your configurations.
+
 ### Instana
 
 The prerequisites to install the Instana agent are:  
