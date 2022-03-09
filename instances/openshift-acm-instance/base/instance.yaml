@@ -6,6 +6,7 @@ metadata:
   namespace: open-cluster-management
 spec:
   nodeSelector:
-    node-role.kubernetes.io/infra: ""
+      node-role.kubernetes.io/infra: ""
   enableClusterBackup: false
   enableClusterProxyAddon: false
+  imagePullSecret: multiclusterhub-pull-secret
