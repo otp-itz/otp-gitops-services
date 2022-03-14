@@ -1,6 +1,0 @@
-rhacm:
-  enabled: true
-  config:
-    operatorGroupName: open-cluster-management
-    namespace: open-cluster-management
-    version: 2.4

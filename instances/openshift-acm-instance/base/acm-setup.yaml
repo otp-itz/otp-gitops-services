@@ -7,6 +7,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "201"
     argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
   labels:
     gitops.tier.group: rhacm
     gitops.tier.layer: services
@@ -25,6 +26,7 @@ spec:
                   -n open-cluster-management \
                   --from-literal=.dockerconfigjson="$DOCKER_CONFIG_JSON" \
                   --type=kubernetes.io/dockerconfigjson
+              exit 0
           imagePullPolicy: IfNotPresent
           name: acm-setup
       dnsPolicy: ClusterFirst

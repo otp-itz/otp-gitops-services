@@ -4,6 +4,7 @@ metadata:
   name: rhacm-postinstall
   annotations:
     argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
   namespace: open-cluster-management
 spec:
   template:
