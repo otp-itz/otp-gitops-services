@@ -2,7 +2,7 @@
 #
 # Requires:
 #  Openshift-GitOps operator be installed in the project "openshift-gitops"
-#  Placement resource "last-mile-gitops" exists
+#  Placement resource "global-gitops" exists
 #  A clusterSet is bound to the openshift-gitops namespace 
 ---
 apiVersion: apps.open-cluster-management.io/v1beta1
@@ -17,5 +17,5 @@ spec:
   placementRef:
     kind: Placement
     apiVersion: cluster.open-cluster-management.io/v1alpha1
-    name: last-mile-gitops 
+    name: global-gitops
     namespace: openshift-gitops
