@@ -2,12 +2,12 @@ apiVersion: hive.openshift.io/v1
 kind: HiveConfig
 metadata:
   name: hive
-  namespace: open-cluster-management
+  labels:
+    backplaneconfig.name: multiclusterengine
 spec:
-  featureGates:
-    custom:
-      enabled:
-      - AlphaAgentInstallStrategy
-    featureSet: Custom
-  logLevel: debug
-  targetNamespace: hive
+  controllersConfig:
+    default:
+      replicas: 1
+  argoCDConfig:
+    enabled: true
+    namespace: openshift-gitops

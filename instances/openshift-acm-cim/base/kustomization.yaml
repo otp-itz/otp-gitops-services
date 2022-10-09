@@ -10,4 +10,4 @@ resources:
   - configmap.yaml
   - hiveconfig.yaml
   - cim-setup.yaml
-  - central-infrastructure-management.yaml
+  - agentserviceconfig.yaml
