@@ -1,6 +1,7 @@
 apiVersion: multicluster.openshift.io/v1
 kind: MultiClusterEngine
 metadata:
+  namespace: multicluster-engine
   name: multiclusterengine
 spec:
   availabilityConfig: High
