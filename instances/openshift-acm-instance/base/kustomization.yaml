@@ -10,5 +10,5 @@ resources:
   - acm-setup.yaml
   - mch-instance.yaml
   #- mce-instance.yaml
-  - console-link-crb.yaml
-  - rhacm-console-link.yaml
+  #- console-link-crb.yaml
+  #- rhacm-console-link.yaml
