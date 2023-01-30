@@ -5,7 +5,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "202"
 spec:
-  enableDownSampling: true             # The default value is false. This is not recommended as querying long-time ranges without non-downsampled data is not efficient and useful.
   imagePullPolicy: Always
   imagePullSecret: multiclusterhub-operator-pull-secret    # The pull secret generated above
   observabilityAddonSpec:               # The ObservabilityAddonSpec defines the global settings for all managed clusters which have observability add-on enabled
@@ -21,6 +20,3 @@ spec:
     ruleStorageSize: 1Gi
     storageClass: ocs-storagecluster-ceph-rbd
     storeStorageSize: 10Gi
-  retentionResolution1h: 30d             # How long to retain samples of 1 hour in bucket
-  retentionResolution5m: 14d
-  retentionResolutionRaw: 5d
