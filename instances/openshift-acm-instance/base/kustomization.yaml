@@ -9,6 +9,6 @@ resources:
   - sa.yaml
   - acm-setup.yaml
   - mch-instance.yaml
-  # - mce-instance.yaml
+  - mce-instance.yaml
   - console-link-crb.yaml
   - rhacm-console-link.yaml
