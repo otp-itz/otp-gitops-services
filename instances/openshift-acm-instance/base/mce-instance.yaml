@@ -26,6 +26,8 @@ spec:
         name: hypershift-preview
       - enabled: true
         name: console-mce
+      - enabled: true
+        name: cluster-proxy-addon
   imagePullSecret: multiclusterhub-pull-secret
   targetNamespace: multicluster-engine
   nodeSelector:
