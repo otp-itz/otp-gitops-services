@@ -11,4 +11,5 @@ resources:
   - mch-instance.yaml
   - mce-instance.yaml
   - console-link-crb.yaml
-  - rhacm-console-link.yaml
+  # RHACM console link is only needed for RHACM <2.5
+  # - rhacm-console-link.yaml
