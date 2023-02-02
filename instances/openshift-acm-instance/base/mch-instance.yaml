@@ -35,3 +35,4 @@ spec:
       name: multicluster-engine
   separateCertificateManagement: false
   imagePullSecret: multiclusterhub-pull-secret
+  disableHubSelfManagement: true
