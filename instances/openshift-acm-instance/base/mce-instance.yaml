@@ -1,8 +1,12 @@
 apiVersion: multicluster.openshift.io/v1
 kind: MultiClusterEngine
 metadata:
+  finalizers:
+    - finalizer.multicluster.openshift.io
+  labels:
+    installer.name: multiclusterhub
+    installer.namespace: open-cluster-management
   name: multiclusterengine
-  namespace: multicluster-engine
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
@@ -32,5 +36,8 @@ spec:
     node-role.kubernetes.io/infra: ''
   tolerations:
     - effect: NoSchedule
+      key: node-role.kubernetes.io/infra
+      operator: Exists
+    - effect: NoExecute
       key: node-role.kubernetes.io/infra
       operator: Exists
