@@ -19,10 +19,10 @@ spec:
         - name: ROUTE_NAME
           value: controller
         - name: ROUTE_NAMESPACE
-          value: ansible-automation-platform
+          value: aap
         - name: CONSOLE_LINK_TEXT
           value: Ansible Automation Platform
         - name: APP_NAME
-          value: ansible-automation-platform
+          value: ansible-automation-controller-instance
       restartPolicy: OnFailure
   backoffLimit: 2
