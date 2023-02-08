@@ -40,5 +40,7 @@ spec:
       name: volsync
     - enabled: true
       name: multicluster-engine
+    - name: app-lifecycle
+      enabled: true
   separateCertificateManagement: false
   imagePullSecret: multiclusterhub-pull-secret

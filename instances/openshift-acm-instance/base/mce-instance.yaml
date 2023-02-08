@@ -32,6 +32,10 @@ spec:
         name: console-mce
       - enabled: true
         name: cluster-proxy-addon
+      - enabled: true
+        name: hypershift-local-hosting
+      - enabled: true
+        name: local-cluster
   imagePullSecret: multiclusterhub-pull-secret
   targetNamespace: multicluster-engine
   nodeSelector:
