@@ -3,7 +3,6 @@ kind: Kustomization
 
 patchesStrategicMerge:
   - mch-instance-basic.yaml
-  #- mce-instance-basic.yaml
 
 bases:
   - ../../base
