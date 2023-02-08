@@ -4,7 +4,6 @@ metadata:
   name: ansible-postinstall
   annotations:
     argocd.argoproj.io/hook: PostSync
-  namespace: ansible-automation-platform
 spec:
   template:
     spec:
