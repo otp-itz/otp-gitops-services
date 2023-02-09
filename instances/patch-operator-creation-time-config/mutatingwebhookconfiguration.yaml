@@ -23,4 +23,12 @@ webhooks:
     - CREATE
     resources:
     - applications
+  - apiGroups:
+    - "console.openshift.io"
+    apiVersions:
+    - "v1"
+    operations:
+    - "CREATE"
+    resources:
+    - ConsoleLink
   sideEffects: None
