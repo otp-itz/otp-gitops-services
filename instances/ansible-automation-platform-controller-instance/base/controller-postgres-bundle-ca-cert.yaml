@@ -19,4 +19,4 @@ spec:
       engineVersion: v2
       type: Opaque
       data:
-        bundle-ca.crt: "{{ .aap-controller-postgres-bundle-ca-cert | filterPEM }}"
+        bundle-ca.crt: "{{ .aap-controller-postgres-bundle-ca-cert }}"
