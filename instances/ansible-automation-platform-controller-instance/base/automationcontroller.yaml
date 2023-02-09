@@ -16,7 +16,7 @@ spec:
   postgres_storage_class: ocs-storagecluster-cephfs
   projects_storage_access_mode: ReadWriteMany
   set_self_labels: true
-  projects_persistence: true
+  projects_persistence: false
   replicas: 1
   admin_user: admin
   loadbalancer_protocol: http
