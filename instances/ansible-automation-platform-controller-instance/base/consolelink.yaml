@@ -21,7 +21,7 @@ spec:
         - name: ROUTE_NAMESPACE
           value: aap
         - name: CONSOLE_LINK_TEXT
-          value: Ansible Automation Platform
+          value: Automation Controller
         - name: APP_NAME
           value: ansible-automation-controller-instance
       restartPolicy: OnFailure
