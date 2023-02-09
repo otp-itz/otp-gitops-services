@@ -6,3 +6,4 @@ resources:
   - automationcontroller.yaml
   # - consolelink.yaml
   - controller-postgres-access.yaml
+  - controller-postgres-bundle-ca-cert.yaml

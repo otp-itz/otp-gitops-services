@@ -21,3 +21,14 @@ spec:
   loadbalancer_protocol: http
   nodeport_port: 30080
   postgres_configuration_secret: controller-postgres-access
+  bundle_cacert_secret: controller-postgres-bundle-ca-cert
+  web_extra_volume_mounts: |
+    - name: bundle-cacert
+      mountPath: /etc/pki/tls/certs/ca-bundle.crt
+      readOnly: true
+      subPath: bundle-ca.crt  
+  task_extra_volume_mounts: |
+    - name: bundle-cacert
+      mountPath: /etc/pki/tls/certs/ca-bundle.crt
+      readOnly: true
+      subPath: bundle-ca.crt

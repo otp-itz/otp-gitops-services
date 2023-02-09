@@ -1,0 +1,22 @@
+# required for ibmcloud postgres db
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: controller-postgres-bundle-ca-cert
+spec:
+  data:
+    - secretKey: bundle-ca-crt
+      remoteRef:
+        key: 724abd1a-a889-f314-6664-c4c5a035bd0d
+  refreshInterval: 24h0m0s
+  secretStoreRef:
+    name: cluster
+    kind: ClusterSecretStore
+  target:
+    name: controller-postgres-bundle-ca-cert
+    creationPolicy: Owner
+    template:
+      type: Opaque
+      data:
+        bundle-ca.crt: |-
+          {{ .bundle-ca-crt | toString }}
