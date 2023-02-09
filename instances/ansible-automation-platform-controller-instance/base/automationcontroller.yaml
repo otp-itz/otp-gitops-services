@@ -2,8 +2,6 @@ apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
   name: controller
-  annotations:
-    argocd.argoproj.io/sync-wave: "250"
 spec:
   create_preload_data: true
   route_tls_termination_mechanism: Edge
@@ -15,11 +13,12 @@ spec:
   projects_storage_size: 8Gi
   auto_upgrade: true
   task_privileged: false
-  postgres_storage_class: ocs-storagecluster-cephfs
-  projects_storage_access_mode: ReadWriteMany
+  # postgres_storage_class: ocs-storagecluster-cephfs
+  # projects_storage_access_mode: ReadWriteMany
   set_self_labels: true
   projects_persistence: true
   replicas: 1
   admin_user: admin
   loadbalancer_protocol: http
   nodeport_port: 30080
+  postgres_configuration_secret: controller-postgres-internal-access
