@@ -2,7 +2,7 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
 bases:
-  - overlays/stable-2.2-cluster-scoped
+  - overlays/stable-2.3-cluster-scoped
 
 patches:
 -  target:
