@@ -16,7 +16,7 @@ spec:
 apiVersion: redhatcop.redhat.io/v1alpha1
 kind: Patch
 metadata:
-  name: patch-console-link
+  name: patch-console-link-automation-hub
   namespace: patch-operator
 spec:
   patches:
