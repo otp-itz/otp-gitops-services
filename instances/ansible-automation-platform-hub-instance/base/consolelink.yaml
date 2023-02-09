@@ -25,7 +25,7 @@ spec:
         apiVersion: console.openshift.io/v1
         kind: ConsoleLink
         name: ansible-automation-hub
-      patchTemplate: '[{"op": "replace", "path": "/spec/href", "value":"{{ (index . 1).spec.host }}"}]'     
+      patchTemplate: '[{"op": "replace", "path": "/spec/href", "value":"https://{{ (index . 1).spec.host }}"}]'     
       patchType: application/json-patch+json
       sourceObjectRefs:
       - apiVersion: route.openshift.io/v1
