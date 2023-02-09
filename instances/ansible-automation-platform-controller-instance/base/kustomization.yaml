@@ -5,6 +5,4 @@ kind: Kustomization
 resources: 
   - automationcontroller.yaml
   - grant-aap-default-sa-privileged.yaml
-  # - consolelink.yaml
-  # - controller-postgres-access.yaml
-  # - controller-postgres-bundle-ca-cert.yaml
+  - consolelink.yaml
