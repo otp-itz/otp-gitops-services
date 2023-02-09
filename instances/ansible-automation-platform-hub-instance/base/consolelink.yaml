@@ -17,12 +17,12 @@ spec:
         - name: APP_MENU_SECTION
           value: One Touch Provisioning
         - name: ROUTE_NAME
-          value: controller
+          value: automation-hub
         - name: ROUTE_NAMESPACE
           value: aap
         - name: CONSOLE_LINK_TEXT
-          value: Ansible Automation Platform
+          value: Automation Hub
         - name: APP_NAME
           value: ansible-automation-hub
       restartPolicy: OnFailure
-  backoffLimit: 2
+  backoffLimit: 6
