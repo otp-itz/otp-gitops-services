@@ -11,6 +11,6 @@ patchesJson6902:
       group: operators.coreos.com
       version: v1alpha1
       kind: Subscription
-      name: ansible-automation-platform
+      name: ansible-automation-platform-operator
       namespace: aap
     path: patch-channel.yaml
