@@ -5,7 +5,7 @@ metadata:
   name: controller-postgres-bundle-ca-cert
 spec:
   data:
-    - secretKey: bundle-ca-crt
+    - secretKey: aap-controller-postgres-bundle-ca-cert
       remoteRef:
         key: 724abd1a-a889-f314-6664-c4c5a035bd0d
   refreshInterval: 24h0m0s
@@ -18,4 +18,4 @@ spec:
     template:
       type: Opaque
       data:
-        bundle-ca.crt: "{{ .bundle-ca-crt | toString }}"
+        bundle-ca.crt: "{{ .aap-controller-postgres-bundle-ca-cert | toString }}"
