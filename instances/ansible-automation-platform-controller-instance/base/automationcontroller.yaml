@@ -21,4 +21,4 @@ spec:
   admin_user: admin
   loadbalancer_protocol: http
   nodeport_port: 30080
-  postgres_configuration_secret: controller-postgres-internal-access
+  postgres_configuration_secret: controller-postgres-access

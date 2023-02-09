@@ -5,7 +5,4 @@ kind: Kustomization
 resources: 
   - automationcontroller.yaml
   # - consolelink.yaml
-  - controller-postgres-internal-access-secret.yaml
-  - postgres-deploy.yaml
-  - postgres-pvc.yaml
-  - postgres-svc.yaml
+  - controller-postgres-access.yaml
