@@ -19,4 +19,4 @@ spec:
       type: Opaque
       data:
         bundle-ca.crt: |-
-          {{ .bundle-ca-crt | toString }}
+          "{{ .bundle-ca-crt | toString }}"
