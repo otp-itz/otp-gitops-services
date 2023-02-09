@@ -19,8 +19,8 @@ metadata:
   name: patch-console-link
   namespace: patch-operator
 spec:
-  # serviceAccountRef:
-  #   name: mutatingwebhook-patcher
+  serviceAccountRef:
+    name: mutatingwebhook-patcher
   patches:
     patch-operator-mutatingwebhookconfigurations:
       targetObjectRef:
