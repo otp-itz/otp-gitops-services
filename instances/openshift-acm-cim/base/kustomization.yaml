@@ -9,5 +9,7 @@ resources:
   - sa.yaml
   - configmap.yaml
   - hiveconfig.yaml
-  - cim-setup.yaml
+  # Disable cim-setup job if cluster was not set up on OpenStack, bare metal, vSphere or installed using UPI and the platform is None
+  # https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.7/html-single/clusters/index#enable-cim
+  # - cim-setup.yaml
   - agentserviceconfig.yaml
