@@ -26,13 +26,13 @@ spec:
         name: server-foundation
       - enabled: false
         name: managedserviceaccount-preview
-      - enabled: false
+      - enabled: true
         name: hypershift-preview
       - enabled: true
         name: console-mce
       - enabled: true
         name: cluster-proxy-addon
-      - enabled: false
+      - enabled: true
         name: hypershift-local-hosting
       - enabled: true
         name: local-cluster
