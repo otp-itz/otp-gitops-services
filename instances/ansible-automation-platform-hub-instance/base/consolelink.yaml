@@ -20,7 +20,7 @@ metadata:
   namespace: patch-operator
 spec:
   patches:
-    patch-operator-mutatingwebhookconfigurations:
+    patch-console-link-automation-hub:
       targetObjectRef:
         apiVersion: console.openshift.io/v1
         kind: ConsoleLink
