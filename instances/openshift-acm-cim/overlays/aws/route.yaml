@@ -1,0 +1,19 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: assisted-image-service
+  namespace: multicluster-engine
+  labels:
+    route-type: nlb
+spec:
+  host: >-
+    assisted-image-service-multicluster-engine.nlb-apps.activation-assets.com
+  to:
+    kind: Service
+    name: assisted-image-service
+    weight: 100
+  port:
+    targetPort: assisted-image-service
+  tls:
+    termination: reencrypt
+  wildcardPolicy: None
