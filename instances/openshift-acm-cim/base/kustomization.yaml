@@ -5,6 +5,5 @@ namespace: open-cluster-management
 
 resources:
   - agentserviceconfig.yaml
-  - configmap.yaml
   - hiveconfig.yaml
   - provisioning-configuration.yaml
