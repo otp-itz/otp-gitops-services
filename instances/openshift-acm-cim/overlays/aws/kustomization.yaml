@@ -7,5 +7,6 @@ patchesStrategicMerge:
 resources:
   - ../../base
   - ingress-controller.yaml
-  - route.yaml
+  - route-host-patch.yaml
+  - router-type-patch.yaml
   - crb.yaml
