@@ -11,7 +11,7 @@ spec:
         apiVersion: route.openshift.io/v1
         kind: Route
         name: assisted-image-service
-      patchTemplate: '[{"op": "replace", "path": "/spec/host", "value":"https://{{ (index . 1).spec.domain }}"}]'     
+      patchTemplate: '[{"op": "replace", "path": "/spec/host", "value":"https://assisted-image-service-multicluster-engine.{{ (index . 1).spec.domain }}"}]'     
       patchType: application/json-patch+json
       sourceObjectRefs:
       - apiVersion: operator.openshift.io/v1
