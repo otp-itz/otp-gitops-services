@@ -22,3 +22,12 @@ rules:
   - list
   - watch
   - patch
+- apiGroups:
+  - "operator.openshift.io"
+  resources:
+  - IngressController
+  verbs:
+  - get
+  - list
+  - watch
+  - patch
