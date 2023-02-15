@@ -3,9 +3,9 @@ kind: Kustomization
 
 patchesStrategicMerge:
   - central-infrastructure-management.yaml
-  - ingress-controller.yaml
-  # - route-host-patch.yaml
-  # - router-type-patch.yaml
 
-bases:
+resources:
   - ../../base
+  - ingress-controller.yaml
+  - route-host-patch.yaml
+  - router-type-patch.yaml

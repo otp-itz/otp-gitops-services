@@ -10,11 +10,11 @@ kind: Kustomization
 
 patchesStrategicMerge:
   - central-infrastructure-management.yaml
+
+resources:
+  - ../../base
   - cim-setup.yaml
   - configmap.yaml
   - cr.yaml
   - crb.yaml
   - sa.yaml
-
-bases:
-  - ../../base
