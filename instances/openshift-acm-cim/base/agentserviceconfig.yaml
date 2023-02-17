@@ -4,9 +4,11 @@ metadata:
   name: agent
   ### Annotation that injects modification into the OpenShift Assisted Service pod
   annotations:
-    unsupported.agent-install.openshift.io/assisted-service-configmap: "assisted-service-config"
+    unsupported.agent-install.openshift.io/assisted-service-configmap: "assisted-service"
   namespace: open-cluster-management
 spec:
+  # Set storage size requests to match that of the recommended sizes 
+  # https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.7/html-single/clusters/index#enable-cim
   databaseStorage:
     accessModes:
     - ReadWriteOnce
@@ -18,10 +20,10 @@ spec:
     - ReadWriteOnce
     resources:
       requests:
-        storage: 10Gi
+        storage: 100Gi
   imageStorage:
     accessModes:
     - ReadWriteOnce
     resources:
       requests:
-        storage: 10Gi
+        storage: 50Gi

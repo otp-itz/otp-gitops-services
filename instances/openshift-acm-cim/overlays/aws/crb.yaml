@@ -1,15 +1,13 @@
+# Allow default sa in multicluster-engine to list out IngressControllers
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: ansible-automation-platform-anyuid
-  annotations:
-    argocd.argoproj.io/sync-wave: "200"
+  name: default-sa-cluster-view
 subjects:
   - kind: ServiceAccount
     name: default
-    namespace: ansible-automation-platform
+    namespace: multicluster-engine
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: cluster-admin
----
+  name: patcher-cr

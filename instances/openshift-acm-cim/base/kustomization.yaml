@@ -4,10 +4,6 @@ kind: Kustomization
 namespace: open-cluster-management
 
 resources:
-  - cr.yaml
-  - crb.yaml
-  - sa.yaml
-  - configmap.yaml
-  - hiveconfig.yaml
-  - cim-setup.yaml
   - agentserviceconfig.yaml
+  - hiveconfig.yaml
+  - provisioning-configuration.yaml

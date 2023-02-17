@@ -8,8 +8,8 @@ bases:
 patches:
   - target:
       kind: Subscription
-      name: ansible-automation-platform
+      name: multicluster-engine
     patch: |-
       - op: replace
         path: /spec/channel
-        value: 'early-access'
+        value: 'stable-2.2'
