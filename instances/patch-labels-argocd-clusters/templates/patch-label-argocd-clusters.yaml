@@ -15,9 +15,9 @@ spec:
       patchTemplate: |
         metadata:
           labels:
-            hive.openshift.io/cluster-platform: {{ '{{ (index . 1).metadata.labels."hive.openshift.io/cluster-platform" }}' }}
-            hive.openshift.io/version-major: {{ '{{ (index . 1).metadata.labels."hive.openshift.io/version-major" }}' }}
-            hive.openshift.io/version-major-minor: {{ '{{ (index . 1).metadata.labels."hive.openshift.io/version-major-minor" }}' }}
+            hive.openshift.io/cluster-platform: {{ '{{ (index . 1).metadata.labels.hive\.openshift\.io/cluster-platform }}' }}
+            hive.openshift.io/version-major: {{ '{{ (index . 1).metadata.labels.hive\.openshift\.io/version-major" }}' }}
+            hive.openshift.io/version-major-minor: {{ '{{ (index . 1).metadata.labels.hive\.openshift\.ioversion-major-minor" }}' }}
       patchType: application/merge-patch+json
       sourceObjectRefs:
       - apiVersion: hive.openshift.io/v1
