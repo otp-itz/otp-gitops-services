@@ -11,6 +11,7 @@ spec:
       serviceAccountName: openshift-gitops-otp-argocd-application-controller
       template:
         spec:
+          containers:
           - name: patch-secret-{{ .Values.clusterClaimName }}
             image: quay.io/openshift/origin-cli:v3.11
             command: ["/bin/bash"]
@@ -20,7 +21,6 @@ spec:
               export platform=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterClaimName }} -n {{ .Values.clusterClaimName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/cluster-platform}')
               export majorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterClaimName }} -n {{ .Values.clusterClaimName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major}')
               export majorMinorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterClaimName }} -n {{ .Values.clusterClaimName }}oc -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major-minor}')
-
               oc patch secret {{ .Values.clusterClaimName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1cluster-platform", "value": "$platform"}]'
               oc patch secret {{ .Values.clusterClaimName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1version-major", "value": "$majorVersion"}]'
               oc patch secret {{ .Values.clusterClaimName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1version-major-minor", "value": "$majorMinorVersion"}]'
