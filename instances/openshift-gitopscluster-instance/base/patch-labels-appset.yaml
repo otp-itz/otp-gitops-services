@@ -10,7 +10,7 @@ spec:
           apps.open-cluster-management.io/acm-cluster: "true"
   template:
     metadata:
-      name: '{{name}}-storage'
+      name: 'patch-labels-{{name}}'
     spec:
       project: services
       source:
