@@ -15,7 +15,7 @@ spec:
       project: services
       source:
         repoURL: https://github.com/otp-itz/otp-gitops-services.git
-        path: patch-labels-argocd-clusters
+        path: instances/patch-labels-argocd-clusters
         helm:
           values: |
             clusterName: {{ name }}
