@@ -20,7 +20,7 @@ spec:
             - |-
               export platform=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterName }} -n {{ .Values.clusterName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/cluster-platform}')
               export majorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterName }} -n {{ .Values.clusterName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major}')
-              export majorMinorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterName }} -n {{ .Values.clusterName }}oc -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major-minor}')
+              export majorMinorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterName }} -n {{ .Values.clusterName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major-minor}')
 
               echo $platform
               echo $majorVersion
