@@ -19,8 +19,6 @@ metadata:
   name: patch-console-link-automation-controller
   namespace: patch-operator
 spec:
-  serviceAccountRef:
-    name: patch-operator
   patches:
     patch-console-link-automation-controller:
       targetObjectRef:
