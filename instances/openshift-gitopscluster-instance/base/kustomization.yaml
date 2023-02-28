@@ -6,3 +6,4 @@ resources:
 - managedclustersetbinding.yaml
 - placement.yaml
 - gitopscluster.yaml
+- patch-labels-argocd-clusters.yaml
