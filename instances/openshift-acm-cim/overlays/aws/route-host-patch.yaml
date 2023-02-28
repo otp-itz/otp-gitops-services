@@ -6,7 +6,7 @@ metadata:
   namespace: multicluster-engine
 spec:
   serviceAccountRef:
-    name: mutatingwebhook-patcher
+    name: patch-operator
   patches:
     patch-assisted-image-service-route-host:
       targetObjectRef:

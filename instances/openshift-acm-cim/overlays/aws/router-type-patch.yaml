@@ -5,6 +5,8 @@ metadata:
   name: patch-assisted-image-service-route-router-type
   namespace: multicluster-engine
 spec:
+  serviceAccountRef:
+    name: patch-operator
   patches:
     patch-assisted-image-service-route-router-type:
       targetObjectRef:
