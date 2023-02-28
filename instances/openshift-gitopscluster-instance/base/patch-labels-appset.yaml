@@ -12,7 +12,7 @@ spec:
     metadata:
       name: '{{name}}-storage'
     spec:
-      project: clusters
+      project: services
       source:
         repoURL: https://github.com/otp-itz/otp-gitops-services.git
         path: patch-labels-argocd-clusters
