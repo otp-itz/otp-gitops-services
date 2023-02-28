@@ -1,26 +1,27 @@
-apiVersion: redhatcop.redhat.io/v1alpha1
-kind: Patch
+---
+apiVersion: batch/v1
+kind: CronJob
 metadata:
-  name: patch-label-argocd-clusters
+  name: patch-secret-{{ .Values.clusterClaimName }}
   namespace: openshift-gitops
 spec:
-  serviceAccountRef:
-    name: default
-  patches:
-    patch-gitops-clusters-{{ .Values.clusterName }}:
-      targetObjectRef:
-        apiVersion: v1
-        kind: Secret
-        name: {{ .Values.clusterName }}-cluster-secret
-      patchTemplate: |
-        metadata:
-          labels:
-            hive.openshift.io/cluster-platform: {{ `"{{ (index . 1).metadata.labels.hive.openshift.io\/cluster-platform }}"` }}
-            hive.openshift.io/version-major: {{ `"{{ (index . 1).metadata.labels.hive.openshift.io\/version-major" }}"` }}
-            hive.openshift.io/version-major-minor: {{ `"{{ (index . 1).metadata.labels.hive.openshift.io\/version-major-minor" }}"` }}
-      patchType: application/merge-patch+json
-      sourceObjectRefs:
-      - apiVersion: hive.openshift.io/v1
-        kind: ClusterDeployment
-        name: {{ .Values.clusterName }}
-        namespace: {{ .Values.clusterName }}
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      serviceAccountName: openshift-gitops-otp-argocd-application-controller
+      template:
+        spec:
+          - name: patch-secret-{{ .Values.clusterClaimName }}
+            image: quay.io/openshift/origin-cli:v3.11
+            command: ["/bin/bash"]
+            args:
+            - -c
+            - |-
+              export platform=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterClaimName }} -n {{ .Values.clusterClaimName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/cluster-platform}')
+              export majorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterClaimName }} -n {{ .Values.clusterClaimName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major}')
+              export majorMinorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterClaimName }} -n {{ .Values.clusterClaimName }}oc -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major-minor}')
+
+              oc patch secret {{ .Values.clusterClaimName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1cluster-platform", "value": "$platform"}]'
+              oc patch secret {{ .Values.clusterClaimName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1version-major", "value": "$majorVersion"}]'
+              oc patch secret {{ .Values.clusterClaimName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1version-major-minor", "value": "$majorMinorVersion"}]'
+          restartPolicy: OnFailure
