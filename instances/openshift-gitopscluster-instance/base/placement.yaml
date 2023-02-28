@@ -13,7 +13,3 @@ spec:
           operator: "In"
           values:
           - OpenShift
-        - key: local-cluster
-          operator: "NotIn"
-          values:
-          - "true"
