@@ -21,7 +21,12 @@ spec:
               export platform=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterName }} -n {{ .Values.clusterName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/cluster-platform}')
               export majorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterName }} -n {{ .Values.clusterName }} -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major}')
               export majorMinorVersion=$(oc get clusterdeployments.hive.openshift.io {{ .Values.clusterName }} -n {{ .Values.clusterName }}oc -o=jsonpath='{.metadata.labels.hive\.openshift\.io/version-major-minor}')
-              oc patch secret {{ .Values.clusterName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1cluster-platform", "value": "$platform"}]'
-              oc patch secret {{ .Values.clusterName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1version-major", "value": "$majorVersion"}]'
-              oc patch secret {{ .Values.clusterName }}-cluster-secret -n openshift-gitops --type json -p '[{"op": "add", "path": "/metadata/labels/hive.openshift.io~1version-major-minor", "value": "$majorMinorVersion"}]'
+
+              echo $platform
+              echo $majorVersion
+              echo $majorMinorVersion
+
+              oc patch secret {{ .Values.clusterName }}-cluster-secret -n openshift-gitops -p '{"metadata": {"labels": {"hive.openshift.io/cluster-platform": "'${platform}'"} } }'
+              oc patch secret {{ .Values.clusterName }}-cluster-secret -n openshift-gitops -p '{"metadata": {"labels": {"hive.openshift.io/version-major": "'${majorVersion}'"} } }'
+              oc patch secret {{ .Values.clusterName }}-cluster-secret -n openshift-gitops -p '{"metadata": {"labels": {"hive.openshift.io/version-major-minor": "'${majorMinorVersion}'"} } }'
           restartPolicy: OnFailure
