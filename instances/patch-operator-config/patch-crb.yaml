@@ -11,3 +11,6 @@ subjects:
 - kind: ServiceAccount
   name: default
   namespace: patch-operator
+- kind: ServiceAccount
+  name: patch-operator
+  namespace: patch-operator
