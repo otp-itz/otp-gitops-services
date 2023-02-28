@@ -42,8 +42,6 @@ rules:
   - patch
 - apiGroups:
   - "argoproj.io"
-  apiVersions:
-  - "v1alpha1"
   verbs:
   - CREATE
   - get
@@ -54,8 +52,6 @@ rules:
   - applications
 - apiGroups:
   - "hive.openshift.io"
-  apiVersions:
-  - "v1"
   verbs:
   - get
   - list
