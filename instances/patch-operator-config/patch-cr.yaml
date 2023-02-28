@@ -31,3 +31,35 @@ rules:
   - list
   - watch
   - patch
+- apiGroups:
+  - "operator.openshift.io"
+  resources:
+  - IngressController
+  verbs:
+  - get
+  - list
+  - watch
+  - patch
+- apiGroups:
+  - "argoproj.io"
+  apiVersions:
+  - "v1alpha1"
+  verbs:
+  - CREATE
+  - get
+  - list
+  - watch
+  - patch
+  resources:
+  - applications
+- apiGroups:
+  - "hive.openshift.io"
+  apiVersions:
+  - "v1alpha1"
+  verbs:
+  - get
+  - list
+  - watch
+  - patch
+  resources:
+  - clusterclaims
