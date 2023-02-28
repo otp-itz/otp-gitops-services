@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: patch-secret-{{ .Values.clusterClaimName }}
+  name: patch-secret-{{ .Values.clusterClaimName | lower }}
   namespace: openshift-gitops
 spec:
   schedule: "* * * * *"
